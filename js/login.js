@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 let email = document.getElementById ("email");
 let password = document.getElementById ("password");
 let error = document.getElementById ("error");
-//let redirection = window.location = index.html;
+//let redirection = window.location = home.html;
 
 function validarFormulario () {
   console.log ("Enviando mensaje....")
@@ -21,7 +21,7 @@ function validarFormulario () {
   mensajeError.push("El campo contraseña no puede quedar vacío")
 }
 else {
-window.location.assign("index.html") }
+window.location.assign("home.html") }
 
 let nuevo_elemento = document.createElement("div");
 nuevo_elemento.setAttribute("Id", "error");
