@@ -14,16 +14,25 @@ async function productos(){
     let products = '';
 
 for (let index =0; index <data.length; index++) {
-         products += 
-      `${data[index].name}
-        ${data[index].description}
-   ${data[index].cost}
-       ${data[index].currency}
-       ${data[index].imgSrc}
-       ${data[index].soldCount}`
-        
-} 
 
+products += `<a href="products.html" class="list-group-item">
+<div class="row">
+    <div class="col-3">
+        <img src=" ${data[index].imgSrc} " alt=" ${data[index].description}" class="img-thumbnail">
+    </div>
+    <div class="col">
+        <div class="d-flex w-100 justify-content-between">
+            <h4 class="mb-1"> ${data[index].name} </h4>
+            <p class="text-muted"> ${data[index].soldCount}  artículos</p>
+    
+        </div>
+        <p class="text-muted"> ${data[index].description}</p>
+    </div>
+    <p class = "text-muted"> ${data[index].currency}  ${data[index].cost}  </p> 
+</div> 
+
+</a>`
+}
 
  
 let contenido = 
