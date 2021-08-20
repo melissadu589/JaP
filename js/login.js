@@ -11,7 +11,7 @@ let error = document.getElementById ("error");
 //let redirection = window.location = home.html;
 
 function validarFormulario () {
-  console.log ("Enviando mensaje....")
+  //console.log ("Enviando mensaje....")
   let mensajeError = [];
 
   if (email.value == null || email.value == ""){
