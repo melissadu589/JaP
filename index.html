@@ -68,13 +68,13 @@ h1
   </style>
 </head>
 
-<div class =formulario>
-<form action = "home.html">
+<div class =formulario id="form">
+<form>
   <br><h1>Iniciar sesión</h1>
   <p><strong>Correo electrónico</strong><br><input class = "casilla" type="text" id="email" required></p>
           <p class="Contra"><strong>Contraseña</strong><br> <input class = "casilla" type="password" id="password" required></p>
           <p class ="recordar"><input type="checkbox" name="rememberme">Recordarme</p>
-          <p><input class = "boton" type="submit" onclick = "return validarFormulario();" value="Ingresar"></p>
+          <p><input class = "boton" type="submit" value="Ingresar"></p>
 
   </form>
   <div class= "opciones">
@@ -85,16 +85,4 @@ h1
   <script src="js/login.js"></script>
 </body>
 </html>
-
-
-<!-- <div class =formulario>
-    <form action = "">
-      <br><h1>Iniciar sesión</h1>
-      <p><strong>Correo electrónico</strong><br><input class = "casilla" type="text" id="email"></p>
-              <p class="Contra"><strong>Contraseña</strong><br> <input class = "casilla" type="password" id="password"></p>
-              <p class ="recordar"><input type="checkbox" name="rememberme">Recordarme</p>
-              <p><input class = "boton" type="submit" onclick = "return validarFormulario();" value="Ingresar"></p>
-    
-      </form>
-
 
