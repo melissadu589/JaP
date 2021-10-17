@@ -10,33 +10,60 @@ document.addEventListener("DOMContentLoaded", function(e){
         
         function showCart(array){
 
-            let htmlContentToAppend = '';
+          let htmlContentToAppend = "";
+
             
                for (index =0; index <array.length; index++) {
                  let articles = array[index];
-                 htmlContentToAppend += `<table class="table">
-                 <thead>
-                   <tr>
-                     <th scope="col">Carro de compras</th>
-                   </tr>
-                 </thead>
-                 <tbody>
-              <th>  <img src="${articles.src}"> <th> 
 
-            <td>    <p>${articles.name}</p>  <td> 
-            <td>  ${articles.count} </td>
-            <td> ${articles.currency}  ${articles.unitCost} </td>
-                 </tbody>
-               </table>
-               `
-               }
+                 htmlContentToAppend+= `  <tr>
+                 <td><img src="${articles.src}" width="100"></td>
+                 <td>${articles.name}</td>
+   
+                 <td><input type="number"  value="${articles.count}" max="" min=1 onchange='subtotal()'></td>
+       
+                 <td>${articles.currency}<p class="precio">${articles.unitCost}</p></td>
+                 <td id="subtol"></td>
+                 <td><img src="img/x-circle-fill.svg" width="20"></td>
+               </tr>    `
+           
+                }
+               
+               document.getElementById('carrin').innerHTML=htmlContentToAppend;
                 
-            
-                
-            document.getElementById("carrito").innerHTML = htmlContentToAppend;
-                     
-            
+
                  }
-            
-
 });
+
+
+
+
+function subtotal (){
+  let price = document.getElementsByClassName("precio");
+  let quantity = document.getElementsByTagName ('input');
+  let subtotal=0;
+
+   for (let i=0; i< price.length; i++){
+  
+    subtotal+= parseFloat(price[i].innerHTML) * parseFloat(quantity[i].value);
+
+}
+
+document.getElementById('subtol').innerHTML=`<strong>UYU ${(subtotal)}</strong>`;
+document.getElementById('subtol1').innerHTML=`<strong>UYU ${(subtotal)}</strong>`;
+}
+
+
+
+document.addEventListener('DOMContentLoaded',()=>{
+    
+  getJSONData(CART_INFO_URL).then( resultado=>{
+      if (resultado.status=="ok"){
+           datosCarrito = resultado.data;
+           subtotal();
+              
+          
+      }
+  })
+  
+})
