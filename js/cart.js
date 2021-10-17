@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(e){
        
                  <td>${articles.currency}<p class="precio">${articles.unitCost}</p></td>
                  <td id="subtol"></td>
-                 <td><img src="img/x-circle-fill.svg" width="20"></td>
+                 <td><img src="img/bote-de-basura.png" width="20"></td>
                </tr>    `
            
                 }
@@ -67,3 +67,4 @@ document.addEventListener('DOMContentLoaded',()=>{
   })
   
 })
+
