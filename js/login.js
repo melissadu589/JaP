@@ -3,6 +3,7 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 document.getElementById("mostrarUsuario").innerHTML = `Bienvenido `+localStorage.getItem("user");
+document.getElementByTagName("input").innerHTML = localStorage.getItem("user");
 });
 
 

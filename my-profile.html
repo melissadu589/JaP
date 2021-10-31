@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+ <!--saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
 
 <head>
@@ -53,26 +53,69 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  <main role="main" class="pb-4">
+    <div class="text-center p-4">
+      <div class="row justify-content-md-center">
+        <h2>Perfil de Usuario</h2>
+    </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-3 mb-3">
+        <fieldset disabled>
+      <label for="disabledTextInput"><img src="img/person-fill.svg" width="18">Nombre de Usuario<input type="text"  name="email" id="correoUser" class="form-control"></label>
+        </fieldset>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label><img src="img/envelope-fill.svg" width="16">E-mail<input type="text" name="email" id="mailUser" value="" class="form-control"></label>
+  </div> </div>
+</div>
+
+<div class="row justify-content-md-center">
+  <div class="col-md-3 mb-3">
+    <label><img src="img/person-fill.svg" width="18">Nombre <input type="text" name="nameUser" id="nameUser" value="" class="form-control"></label>
+</div>
+<div class="col-md-3 mb-3">
+  <label><img src="img/person-fill.svg" width="18">Apellido <input  type="text" name="lastNameU" id="lastNameU" value="" class="form-control"></label>
+</div> </div>
+</div>
+
+<div class="row justify-content-md-center">
+  <div class="col-md-3 mb-3">
+    <label><img src="img/calendar-check-fill.svg" width="16">Edad <input  type="number" name="ageUser" id="ageUser" value="" class="form-control"></label>
+</div>
+<div class="col-md-3 mb-3">
+  <label><img src="img/telephone-fill.svg" width="16">Teléfono de contacto<input type="number" name="phoneNumber" id="phoneNumber" value="" class="form-control"></label>
+</div> </div>
+</div>
+
+<div class="row justify-content-md-center">
+    <input class="btn btn-dark" type="submit" value="Guardar cambios" tyle="float: center;" onclick="saveData()">
     </div>
   </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </form> 
+
+
+    
+  
+      
+  
+    
+
+
+  
+<!-- <form id="datos">
+  <div class="form-group row">
+  <h3>Mi perfil</h3>
+    <label>Nombre <input type="text" name="nameUser" id="nameUser" value="" class="form-control-file"></label>
+    <label>Apellido <input  type="text" name="lastNameU" id="lastNameU" value="" class="form-control-file"></label>
+    <label>Edad <input  type="number" name="ageUser" id="ageUser" value="" class="form-control-file"></label>
+    <label>E-mail<input type="text" name="email" id="correoUser" value="" class="form-control-file"></label>
+    <label>Teléfono de contacto<input type="number" name="phoneNumber" id="phoneNumber" value="" class="form-control-file"></label>
+    <input class="btn btn-dark" type="submit" value="Modificar" onclick="saveData()">
     </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+    </form> -->
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -86,6 +129,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="js/login.js"></script>
 </body>
 
 </html>
