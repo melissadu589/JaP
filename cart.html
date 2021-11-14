@@ -16,6 +16,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   
 </head>
 
@@ -73,6 +74,7 @@ h3
       <th class="bg-dark"></th>
       <th class="table-dark">Producto</th>
       <th class="table-dark">Cantidad</th>
+      <th class="table-dark">Moneda</th>
       <th class="table-dark">Precio</th>
       <th class="table-dark">Subtotal</th>
       <th class="table-dark"></th>
@@ -86,98 +88,182 @@ h3
 <hr class="mb-4">
 <br>
 <h5><strong>Tipo de envío</strong></h5>
-<div class="d-block my-3">
-  <div class="custom-control custom-radio">
-<input type="radio"  class="custom-control-input" checked="" required=""> 
-<label class="custom-control-label">Premium (2-5 días) - Costo del 15% sobre el subtotal</label>
+
+ <form class="was-validated">
+
+    
+<input type="radio" value="1" name="envioType" id="premiumRadio"class="form-control" required> 
+<label>Premium (2-5 días) - Costo del 15% sobre el subtotal</label>
+
+<input type="radio"  value="2" name="envioType" id="expressRadio" class="form-control" required> 
+<label>Express (5-8 días) - Costo del 7% sobre el subtotal</label>
+
+<input type="radio"  value="3" name="envioType" id="standardRadio" class="form-control" required> 
+<label>Standard (12 a 15 días) - Costo del 5% sobre el subtotal</label>
+
+<div class="invalid-feedback">
+  Elija un tipo de envío
 </div>
-<div class="custom-control custom-radio">
-<input type="radio" class="custom-control-input"  required=""> 
-<label class="custom-control-label">Express (5-8 días) - Costo del 7% sobre el subtotal</label>
-</div>
-<div class="custom-control custom-radio">
-<input type="radio" class="custom-control-input" required=""> 
-<label class="custom-control-label">Standard (12 a 15 días) - Costo del 5% sobre el subtotal</label>
-</div>
+</form> 
 <br>
-<hr class="mb-4">
+
+<div  class="container">
+  <table class="table" >
+    <thead>
+      <h5><strong>Costos</strong></h5>
+      <tr>
+        <th class="table-dark">Subtotal</th>
+        <th class="table-dark">Costo de envío($)</th>
+        <th class="table-dark">Total($)</th>
+      </tr>
+    </tr>
+    <tr>
+      <td id="subtol1" onchange="subtotal()" ></td>
+      <td id="costoEnvio"></td>
+      <td id="total"></td>
+    </thead>
+
+  </table>
+
+  <hr class="mb-4">
 <h5><strong>Elige tu opción de entrega</strong></h5>
 <p>Selecciona el departamento y dirección donde quieres recibir tus productos.</p>
 
 
-<form class="form-inline">
-  <div class="form-group">
-    <label>Departameto<br></label>
-    <select class="browser-default custom-select">
-      <option selected>Elige una opción</option>
-      <option value="1">Artigas</option>
-      <option value="2">Canelones</option>
-      <option value="3">Cerro Largo</option>
-      <option value="4">Colonia</option>
-      <option value="5">Durazno</option>
-      <option value="6">Flores</option>
-      <option value="7">Florida</option>
-      <option value="8">Lavalleja</option>
-      <option value="9">Maldonado</option>
-      <option value="10">Montevideo</option>
-      <option value="11">Paysandú</option>
-      <option value="12">Río Negro</option>
-      <option value="13">Rivera</option>
-      <option value="14">Rocha</option>
-      <option value="15">Salto</option>
-      <option value="16">San José</option>
-      <option value="17">Soriano</option>
-      <option value="18">Tacuarembó</option>
-      <option value="19">Treita y tres</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="pwd">Ciudad</label>
-    <input type="text" class="form-control">
-  </div>
-  </form>
-
-  <br>
-
-  <form class="form-inline">
-    <div class="form-group">
-      <label for="text">Calle</label>
-      <input type="text" class="form-control"> 
-      <br>
-      <label for="number">Número</label>
-      <input type="number" class="form-control">
-      <br>
-      <label for="text">Esquina</label>
-      <input type="text" class="form-control">
+  <form class="was-validated" id="formValidar">
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+      <label for="validationCustom03">Departamento</label>
+      <select class="custom-select" id="departamentoHTML" required>
+        <option selected disabled value="">Elija un departamento</option>
+        <option value="1">Artigas</option>
+        <option value="2">Canelones</option>
+        <option value="3">Cerro Largo</option>
+        <option value="4">Colonia</option>
+        <option value="5">Durazno</option>
+        <option value="6">Flores</option>
+        <option value="7">Florida</option>
+        <option value="8">Lavalleja</option>
+        <option value="9">Maldonado</option>
+        <option value="10">Montevideo</option>
+        <option value="11">Paysandú</option>
+        <option value="12">Río Negro</option>
+        <option value="13">Rivera</option>
+        <option value="14">Rocha</option>
+        <option value="15">Salto</option>
+        <option value="16">San José</option>
+        <option value="17">Soriano</option>
+        <option value="18">Tacuarembó</option>
+        <option value="19">Treita y tres</option>
+      </select>
+      <div class="invalid-feedback">
+  Este campo no puede quedar vacio 
+      </div>
     </div>
-    </form>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom04">Ciudad</label>
+      <input type="text" class="form-control" id="ciudadHTML" required>
+      <div class="invalid-feedback">
+        Este campo no puede quedar vacío
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">Calle</label>
+      <input type="text" class="form-control" id="calleHTML" required>
+      <div class="invalid-feedback">
+       Este campo no puede quedar vacio
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom04">Esquina</label>
+      <input type="text" class="form-control" id="esquinaHTML" required>
+      <div class="invalid-feedback">
+        Este campo no puede quedar vacio
+
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom05">Número</label>
+      <input type="number" class="form-control" id="numeroHTML" required>
+      <div class="invalid-feedback">
+        Este campo no puede quedar vacio
+      </div>
+    </div>
+  </div>
+  </div>
+</form>
 
 
-  <br>
-
-  <hr class="mb-4">
-
-<h5><strong>Costos</strong></h5>
-<div  class="container">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
  
-      <th class="table-dark">Subtotal</th>
-      <th class="table-dark">Costo de envío</th>
-      <th class="table-dark">Total($)</th>
-    </tr>
-    <tr>
-      <td id="subtol1" onchange="subtotal()" ></td>
-      <td >Precio 2 </td>
-      <td>Precio 3</td>
-    </tr>
-    </thead>
-    </table>
+
+    <h5><strong>Método de pago</strong>  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Seleccionar</button></h5> 
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Forma de Pago</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <form class="was-validated"> 
+
+              <div class="form-group">
+                <label for="option1" class="col-form-label"> 
+        <input type="radio" name="hm" value="1" id="option1" > <img src="img/credit-card.svg" width="20" >  
+        Tarjeta de crédito  </label>
+              </div>
+              <div class="row">
+                <div class="col-md-4 mb-3">
+              <div class="input-group">
+                <label for="number" class="col-form-label" for="tarjetainfo">Número de tarjeta 
+                <input type="number" class="form-control" id="tarjetainfo" required></label>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="codigoinfo" class="col-form-label">Código <input type="number" class="form-control" id="codigoinfo" required></label>
+          </div>
+              </div>
+              <div class="form-group">
+                <label for="vencimiento" class="col-form-label">Fecha de vencimiento 
+                  <input type="month" id="vencimiento"  name="vencimiento"  class="form-control" required></label>
+  
+              </div>
+
+              <div class="form-group">
+                <label for="option2" class="col-form-label">
+                  <input type="radio" name="hm" value="2" id="option2"> <img src="img/bank2.svg" width="20"> <span></span>Transferencia bancaria</label>
+         
+              </div>
+              <div class="col-6 col-mb-3">
+              <div class="form-group">
+                <label for="cuentainfo" class="col-form-label">Número de cuenta</label>
+                <input type="number" class="form-control" id="cuentainfo" required>
+              </div>
+              </div>
+
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <br>
        
-    <button type="button" class="btn btn-dark" style="float: right;">Finalizar Compra</button>
-    <br>
+    <button type="button" class="btn btn-dark" style="float: right;" onclick="validarCompra()">Finalizar Compra</button>
+  
+
+    
+    
+ 
 
     <footer class="text-muted">
       <div class="container">
