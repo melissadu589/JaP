@@ -85,26 +85,61 @@ h3
   </tbody>
 </table>
 <br>
-<hr class="mb-4">
-<br>
-<h5><strong>Tipo de envío</strong></h5>
 
- <form class="was-validated">
 
-    
-<input type="radio" value="1" name="envioType" id="premiumRadio"class="form-control" required> 
+ <!-- <form class="was-validated">
+
+  <div class="d-block my-3">
+    <div class="custom-control custom-radio">
+  
+<input type="radio" value="1" name="envioType" id="premiumRadio" class="form-control" required> 
 <label>Premium (2-5 días) - Costo del 15% sobre el subtotal</label>
+ </div>
 
+ <div class="custom-control custom-radio">
 <input type="radio"  value="2" name="envioType" id="expressRadio" class="form-control" required> 
 <label>Express (5-8 días) - Costo del 7% sobre el subtotal</label>
+ </div>
 
+<div class="custom-control custom-radio">
 <input type="radio"  value="3" name="envioType" id="standardRadio" class="form-control" required> 
 <label>Standard (12 a 15 días) - Costo del 5% sobre el subtotal</label>
-
 <div class="invalid-feedback">
   Elija un tipo de envío
 </div>
-</form> 
+</div>
+</div>
+</form> -->
+
+<form class="was-validated">
+  <hr class="mb-4">
+
+  <h5><strong>Tipo de envío</strong></h5>
+  
+  
+  <div class="d-block my-3">
+    <div class="custom-control custom-radio">
+     
+      <input id="premiumRadio" name="publicationType" type="radio" class="custom-control-input" required="">
+      <label class="custom-control-label" for="premiumRadio">Premium (2-5 días) - Costo del 15% sobre el subtotal </label>
+      
+    </div>
+    <div class="custom-control custom-radio">
+      <input id="expressRadio" name="publicationType" type="radio" class="custom-control-input" required="">
+      <label class="custom-control-label" for="expressRadio">Express (5-8 días) - Costo del 7% sobre el subtotal</label>
+      
+    </div>
+    <div class="custom-control custom-radio">
+      <input id="standardRadio" name="publicationType" type="radio" class="custom-control-input" required="">
+      <label class="custom-control-label" for="standardRadio">Standard (12 a 15 días) - Costo del 5% sobre el subtotal </label>
+      <div class="invalid-feedback">
+        Elija un tipo de envío
+      </div>
+    </div>
+  </div>
+  </form>
+
+
 <br>
 
 <div  class="container">

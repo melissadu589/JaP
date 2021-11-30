@@ -82,6 +82,8 @@ function updateTotalCosts(){
 }
 
 
+
+
 document.getElementById("premiumRadio").addEventListener("change", function(){
   envioPercentage = 0.15;
   updateTotalCosts();
